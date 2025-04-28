@@ -27,9 +27,10 @@ Features:
 
 3. **Monte Carlo Simulation**
    - Simulate latent variables using the one-factor copula:
-     $$
-     X_i = \\sqrt(\\rho_i) \\times M + \\sqrt(1 - \\rho_i) \\times Z_i
-     $$
+
+   $$
+   X_i = \sqrt{\rho_i} \times M + \sqrt{1 - \rho_i} \times Z_i
+   $$
    - Transform to uniform space via standard normal CDF
    - Convert to default times using inverse exponential CDF
    - Determine defaults based on thresholds implied by default intensities
