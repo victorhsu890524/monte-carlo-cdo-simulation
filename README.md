@@ -27,28 +27,33 @@ Features:
 
 3. **Monte Carlo Simulation**
    - Simulate latent variables using the one-factor copula:
-     ```
-     X_i = sqrt(ρ_i) * M + sqrt(1 - ρ_i) * Z_i
-     ```
+     $$
+     X_i = \\sqrt(\\rho_i) \\times M + \\sqrt(1 - \\rho_i) \\times Z_i
+     $$
    - Transform to uniform space via standard normal CDF
    - Convert to default times using inverse exponential CDF
    - Determine defaults based on thresholds implied by default intensities
 
-5. **Tranche Pricing**
+4. **Tranche Pricing**
    - Aggregate portfolio losses across simulations
    - Map portfolio loss to tranche-specific losses using attachment/detachment
    - Compute average loss and divide by maturity to estimate break-even spread
    - Estimate standard error to assess simulation precision
 
-6. **Sensitivity Analysis**
+5. **Sensitivity Analysis**
    - Vary correlation uniformly across the portfolio
    - Track and plot tranche spread response to changes in systemic correlation
 
-## Tranche Definitions
+## Tranche Definitions and Pricing Results
 
-| Tranche        | Attachment | Detachment |
-|----------------|------------|------------|
-| Equity         | 0%         | 5%         |
-| Mezzanine      | 5%         | 15%        |
-| Senior         | 15%        | 25%        |
-| Super Senior   | 25%        | 100%       |
+| Tranche        | Attachment | Detachment | Fair Spread (%) | Error Bound (± %) |
+|----------------|------------|------------|-----------------|-------------------|
+| Equity         | 0%         | 5%         | 17.63%          | ±0.05%            |
+| Mezzanine      | 5%         | 15%        | 9.36%           | ±0.08%            |
+| Senior         | 15%        | 25%        | 4.10%           | ±0.07%            |
+| Super Senior   | 25%        | 100%       | 0.54%           | ±0.02%            |
+
+## Correlation Sensitivity Analysis
+The following plot shows how tranche spreads change with varying default correlation levels:
+
+![Sensitivity Plot](./correlation_sensitivity.png)
